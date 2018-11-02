@@ -8,6 +8,8 @@ var sourcemaps = require('gulp-sourcemaps');
 var zip = require('gulp-zip');
 var uglify = require('gulp-uglify');
 var filter = require('gulp-filter');
+var concat = require('gulp-concat');
+var cleanCSS = require('gulp-clean-css');
 
 // postcss plugins
 var autoprefixer = require('autoprefixer');
@@ -41,26 +43,29 @@ gulp.task('css', function () {
         cssnano()
     ];
 
-    return gulp.src('assets/css/*.css')
+    return gulp.src('./assets/css/screen.css')
         .on('error', swallowError)
         .pipe(sourcemaps.init())
         .pipe(postcss(processors))
+        .pipe(concat('./assets/built/screen.css'))
+        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('assets/built/'))
+        .pipe(gulp.dest('.'))
         .pipe(livereload());
 });
 
 gulp.task('js', function () {
-    var jsFilter = filter(['**/*.js'], {restore: true});
+    // var jsFilter = filter(['**/*.js'], {restore: true});
 
     return gulp.src('assets/js/*.js')
         .on('error', swallowError)
         .pipe(sourcemaps.init())
-        .pipe(jsFilter)
+        // .pipe(jsFilter)
+        // .pipe(concat('./assets/built/bundle.min.js'))
         .pipe(uglify())
-        .pipe(jsFilter.restore)
+        // .pipe(jsFilter.restore)
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('assets/built/'))
+        .pipe(gulp.dest('./assets/built/'))
         .pipe(livereload());
 });
 
