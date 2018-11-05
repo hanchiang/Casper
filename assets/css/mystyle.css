@@ -13,3 +13,7 @@
         width: 75vw;
     }
 }
+
+..post-full-content pre {
+    margin: 1em 0 3em;
+}
