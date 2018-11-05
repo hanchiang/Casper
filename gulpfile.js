@@ -32,6 +32,10 @@ gulp.task('build', ['css', 'js'], function (/* cb */) {
     return nodemonServerInit();
 });
 
+gulp.task('build-once', ['css', 'js'], function () {
+    
+});
+
 gulp.task('generate', ['css', 'js']);
 
 gulp.task('css', function () {

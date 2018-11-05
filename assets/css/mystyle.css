@@ -1,0 +1,15 @@
+.kg-image.kg-image-thumbnail {
+  border-radius: 50%;
+}
+
+@media (max-width: 1040px) {
+    .post-full-content .kg-image {
+        width: 50vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .post-full-content .kg-image {
+        width: 75vw;
+    }
+}
