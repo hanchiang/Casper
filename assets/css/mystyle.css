@@ -14,6 +14,15 @@
     }
 }
 
-..post-full-content pre {
+.post-full-content pre {
     margin: 1em 0 3em;
+}
+
+/* Display images in a row */
+.kg-image-card-container {
+    display: flex;
+}
+
+.kg-image-card-container .kg-card.kg-image-card {
+    margin-right: 1em;
 }
