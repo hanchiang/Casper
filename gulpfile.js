@@ -8,8 +8,6 @@ var sourcemaps = require('gulp-sourcemaps');
 var zip = require('gulp-zip');
 var uglify = require('gulp-uglify');
 var filter = require('gulp-filter');
-var concat = require('gulp-concat');
-var cleanCSS = require('gulp-clean-css');
 
 // postcss plugins
 var autoprefixer = require('autoprefixer');
@@ -47,14 +45,12 @@ gulp.task('css', function () {
         cssnano()
     ];
 
-    return gulp.src('./assets/css/screen.css')
+    return gulp.src('./assets/css/main.css')
         .on('error', swallowError)
         .pipe(sourcemaps.init())
         .pipe(postcss(processors))
-        .pipe(concat('./assets/built/screen.css'))
-        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('.'))
+        .pipe(gulp.dest('./assets/built'))
         .pipe(livereload());
 });
 

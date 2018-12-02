@@ -1,3 +1,19 @@
+/* 7. Single Post
+/* ---------------------------------------------------------- */
+/* Adjust margin and padding of pre blocks */
+.post-full-content pre {
+    margin: 1em 0 2em;
+    padding: 1em;
+}
+
+.post-full-content pre {
+
+}
+
+
+/* 7.6. Koenig Styles
+/* ---------------------------------------------------------- */
+
 /* For thumbnail image, e.g. image of author on About page */
 .kg-image.kg-image-thumbnail {
   border-radius: 50%;
@@ -15,11 +31,6 @@
     }
 }
 
-/* Reduce the top margin of pre blocks by juuuust a little */
-.post-full-content pre {
-    margin: 1em 0 3em;
-}
-
 /* Display images in a row */
 .kg-image-card-container {
     display: flex;
@@ -27,4 +38,11 @@
 
 .kg-image-card-container .kg-card.kg-image-card {
     margin-right: 1em;
+}
+
+
+/* Custom styles */
+/* --------------------------------------------------------- */
+.nomargin {
+    margin: 0;
 }
