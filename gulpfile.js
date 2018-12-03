@@ -8,6 +8,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var zip = require('gulp-zip');
 var uglify = require('gulp-uglify');
 var filter = require('gulp-filter');
+var concat = require('gulp-concat');
 
 // postcss plugins
 var autoprefixer = require('autoprefixer');
@@ -57,15 +58,16 @@ gulp.task('css', function () {
 gulp.task('js', function () {
     // var jsFilter = filter(['**/*.js'], {restore: true});
 
-    return gulp.src('assets/js/*.js')
+    // rainbow.js is only added to pages with post
+    return gulp.src(['assets/js/*.js', '!assets/js/rainbow.js'])
         .on('error', swallowError)
         .pipe(sourcemaps.init())
         // .pipe(jsFilter)
-        // .pipe(concat('./assets/built/bundle.min.js'))
+        // .pipe(concat('./assets/built/main.js'))
         .pipe(uglify())
         // .pipe(jsFilter.restore)
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./assets/built/'))
+        .pipe(gulp.dest('.'))
         .pipe(livereload());
 });
 

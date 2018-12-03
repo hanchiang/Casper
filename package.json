@@ -45,6 +45,7 @@
         "cssnano": "3.7.1",
         "gscan": "^2.0.0",
         "gulp": "3.9.1",
+        "gulp-concat": "^2.6.1",
         "gulp-filter": "5.1.0",
         "gulp-livereload": "3.8.1",
         "gulp-postcss": "6.1.1",
