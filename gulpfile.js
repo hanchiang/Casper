@@ -67,7 +67,7 @@ gulp.task('js', function () {
         .pipe(uglify())
         // .pipe(jsFilter.restore)
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('.'))
+        .pipe(gulp.dest('./assets/built'))
         .pipe(livereload());
 });
 

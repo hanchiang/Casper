@@ -11,3 +11,12 @@
   width: 100%;
   padding: 0;
 }
+
+#mc_embed_signup div#mce-error-response {
+  color: #db2323;
+}
+
+#mc_embed_signup div#mce-responses {
+  margin: 0;
+  padding: 0;
+}
