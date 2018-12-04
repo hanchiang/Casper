@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var merge = require('merge2');
 
 // gulp plugins and utils
 var gutil = require('gulp-util');
@@ -9,6 +10,7 @@ var zip = require('gulp-zip');
 var uglify = require('gulp-uglify');
 var filter = require('gulp-filter');
 var concat = require('gulp-concat');
+var jsImport = require('gulp-js-import');
 
 // postcss plugins
 var autoprefixer = require('autoprefixer');
@@ -58,17 +60,26 @@ gulp.task('css', function () {
 gulp.task('js', function () {
     // var jsFilter = filter(['**/*.js'], {restore: true});
 
-    // rainbow.js is only added to pages with post
-    return gulp.src(['assets/js/*.js', '!assets/js/rainbow.js'])
-        .on('error', swallowError)
-        .pipe(sourcemaps.init())
-        // .pipe(jsFilter)
-        // .pipe(concat('./assets/built/main.js'))
-        .pipe(uglify())
-        // .pipe(jsFilter.restore)
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./assets/built'))
-        .pipe(livereload());
+    return merge(
+        gulp.src('./assets/js/main.js')
+            .on('error', swallowError)
+            .pipe(jsImport({ hideConsole: true }))
+            .pipe(sourcemaps.init())
+            // .pipe(jsFilter)
+            .pipe(concat('main.js'))
+            .pipe(uglify())
+            // .pipe(jsFilter.restore)
+            .pipe(sourcemaps.write('.'))
+            .pipe(gulp.dest('./assets/built'))
+            .pipe(livereload()),
+        gulp.src(['./assets/js/infinitescroll.js', './assets/js/rainbow.js'])
+            .on('error', swallowError)
+            .pipe(sourcemaps.init())
+            .pipe(uglify())
+            .pipe(sourcemaps.write('.'))
+            .pipe(gulp.dest('./assets/built'))
+            .pipe(livereload())
+    )
 });
 
 gulp.task('watch', function () {
