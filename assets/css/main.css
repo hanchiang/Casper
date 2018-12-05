@@ -1,5 +1,6 @@
 @import "global.css";
 @import "rainbow-monokai.css";
 @import "screen.css";
-@import "mailchimp.css";
+@import "mail-chimp-classic-10_7.css"; /* Default mailchimp styles */
+@import "mailchimp-custom.css";
 @import "mystyle.css";

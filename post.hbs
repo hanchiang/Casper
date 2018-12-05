@@ -3,9 +3,6 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
-{{#contentFor "styles"}}
-<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css"></default>
-{{/contentFor}}
 
 <header class="site-header outer">
     <div class="inner">
@@ -66,7 +63,9 @@ into the {body} of the default.hbs template --}}
 
             </footer>
             
-            {{> "mailchimp"}}
+            <div class="mailchimp-post-wrapper">
+                {{> "mailchimp"}}
+            </div>
 
             {{!--
             <section class="post-full-comments">
