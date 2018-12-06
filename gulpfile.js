@@ -1,31 +1,31 @@
-var gulp = require('gulp');
-var merge = require('merge2');
+const gulp = require('gulp');
+const merge = require('merge2');
 
 // gulp plugins and utils
-var gutil = require('gulp-util');
-var livereload = require('gulp-livereload');
-var postcss = require('gulp-postcss');
-var sourcemaps = require('gulp-sourcemaps');
-var zip = require('gulp-zip');
-var uglify = require('gulp-uglify');
-var filter = require('gulp-filter');
-var concat = require('gulp-concat');
-var jsImport = require('gulp-js-import');
+const gutil = require('gulp-util');
+const livereload = require('gulp-livereload');
+const postcss = require('gulp-postcss');
+const sourcemaps = require('gulp-sourcemaps');
+const zip = require('gulp-zip');
+const uglify = require('gulp-uglify');
+const filter = require('gulp-filter');
+const concat = require('gulp-concat');
+const jsImport = require('gulp-js-import');
 
 // postcss plugins
-var autoprefixer = require('autoprefixer');
-var colorFunction = require('postcss-color-function');
-var cssnano = require('cssnano');
-var customProperties = require('postcss-custom-properties');
-var easyimport = require('postcss-easy-import');
+const autoprefixer = require('autoprefixer');
+const colorFunction = require('postcss-color-function');
+const cssnano = require('cssnano');
+const customProperties = require('postcss-custom-properties');
+const easyimport = require('postcss-easy-import');
 
-var swallowError = function swallowError(error) {
+const swallowError = function swallowError(error) {
     gutil.log(error.toString());
     gutil.beep();
     this.emit('end');
 };
 
-var nodemonServerInit = function () {
+const nodemonServerInit = function () {
     livereload.listen(1234);
 };
 
@@ -40,7 +40,7 @@ gulp.task('build-once', ['css', 'js'], function () {
 gulp.task('generate', ['css', 'js']);
 
 gulp.task('css', function () {
-    var processors = [
+    const processors = [
         easyimport,
         customProperties,
         colorFunction(),
@@ -58,7 +58,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('js', function () {
-    // var jsFilter = filter(['**/*.js'], {restore: true});
+    // const jsFilter = filter(['**/*.js'], {restore: true});
 
     return merge(
         gulp.src('./assets/js/main.js')
@@ -87,9 +87,9 @@ gulp.task('watch', function () {
 });
 
 gulp.task('zip', ['css', 'js'], function () {
-    var targetDir = 'dist/';
-    var themeName = require('./package.json').name;
-    var filename = themeName + '.zip';
+    const targetDir = 'dist/';
+    const themeName = require('./package.json').name;
+    const filename = themeName + '.zip';
 
     return gulp.src([
         '**',

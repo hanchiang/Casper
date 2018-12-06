@@ -46,3 +46,12 @@
 .nomargin {
     margin: 0;
 }
+
+/* Custom styles for emoji: https://ionicabizau.github.io/emoji.css/ */
+.ec {
+    font-size: 2em;
+}
+
+.ec-money-mouth-face {
+    color: color(var(--green) l(-10%) b(+5%));
+}
