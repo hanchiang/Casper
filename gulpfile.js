@@ -48,13 +48,22 @@ gulp.task('css', function () {
         cssnano()
     ];
 
-    return gulp.src('./assets/css/main.css')
-        .on('error', swallowError)
-        .pipe(sourcemaps.init())
-        .pipe(postcss(processors))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./assets/built'))
-        .pipe(livereload());
+    return merge(
+        gulp.src('./assets/css/main.css')
+            .on('error', swallowError)
+            .pipe(sourcemaps.init())
+            .pipe(postcss(processors))
+            .pipe(sourcemaps.write('.'))
+            .pipe(gulp.dest('./assets/built'))
+            .pipe(livereload()),
+        gulp.src('./assets/css/rainbow-monokai.css')
+            .on('error', swallowError)
+            .pipe(sourcemaps.init())
+            .pipe(postcss(processors))
+            .pipe(sourcemaps.write('.'))
+            .pipe(gulp.dest('./assets/built'))
+            .pipe(livereload())
+    )
 });
 
 gulp.task('js', function () {

@@ -1,6 +1,5 @@
 @import "global.css"; /* Casper global stlyes */
 @import "screen.css"; /* Casper default styles */
-@import "rainbow-monokai.css";  /* Rainbow.js syntax highlight styles */
 @import "mail-chimp-classic-10_7.css"; /* Mailchimp default styles */
 @import "emoji.css";  /* https://ionicabizau.github.io/emoji.css/ */
 
