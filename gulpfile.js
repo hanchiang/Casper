@@ -81,7 +81,7 @@ gulp.task('js', function () {
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest('./assets/built'))
             .pipe(livereload()),
-        gulp.src(['./assets/js/infinitescroll.js', './assets/js/rainbow.js'])
+        gulp.src(['./assets/js/commentbox.js', './assets/js/infinitescroll.js', './assets/js/rainbow.js'])
             .on('error', swallowError)
             .pipe(sourcemaps.init())
             .pipe(uglify())

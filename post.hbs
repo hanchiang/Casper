@@ -76,6 +76,8 @@ into the {body} of the default.hbs template --}}
             </section>
             --}}
 
+            <section class="post-full-comments commentbox"></div>
+
         </article>
 
     </div>
@@ -204,6 +206,8 @@ into the {body} of the default.hbs template --}}
     });
     </script>
 
-    <script src="{{asset "built/rainbow.js"}}"></script>
+    <script async src="{{asset "built/rainbow.js"}}"></script>
+    <script defer src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+    <script defer src="{{asset "built/commentbox.js" }}"></script>
 
 {{/contentFor}}
