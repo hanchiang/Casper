@@ -81,10 +81,18 @@ gulp.task('js', function () {
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest('./assets/built'))
             .pipe(livereload()),
-        gulp.src(['./assets/js/commentbox.js', './assets/js/infinitescroll.js', './assets/js/rainbow.js'])
+        // uglify
+        gulp.src(['./assets/js/commentbox.js', './assets/js/infinitescroll.js'])
             .on('error', swallowError)
             .pipe(sourcemaps.init())
             .pipe(uglify())
+            .pipe(sourcemaps.write('.'))
+            .pipe(gulp.dest('./assets/built'))
+            .pipe(livereload()),
+        // no uglify
+        gulp.src('./assets/js/rainbow.js')
+            .on('error', swallowError)
+            .pipe(sourcemaps.init())
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest('./assets/built'))
             .pipe(livereload())
