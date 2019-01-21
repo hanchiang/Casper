@@ -18,11 +18,13 @@ into the {body} of the default.hbs template --}}
       </header>
 
       {{#get 'tags' limit='all' include='count.posts' order='count.posts desc'}}
-        {{#foreach tags}}
-          <a href='{{ url }}'>
-            <h2>{{ name }} <small>({{ count.posts }})</small></h2>
+        <div id="tags">
+          {{#foreach tags}}
+          <a id="tag" href='{{ url }}'>
+            <h2 id="tag-header">{{ name }} <small>({{ count.posts }})</small></h2>
           </a>
-        {{/foreach}}
+          {{/foreach}}
+        </div>
       {{/get}}
     </div>
   </main>
