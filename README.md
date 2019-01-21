@@ -72,13 +72,11 @@ You can add your own SVG icons in the same manner.
 </figure>
 ```
 
-
-# Copyright & License
-
-Copyright (c) 2013-2018 Ghost Foundation - Released under the [MIT license](LICENSE).
-
 # Customisations
 * Mailchimp(HTML, CSS)
 * Assets bundling
 * Emoji(CSS)
 * Rainbow syntax highlight
+
+# Copyright & License
+Copyright (c) 2013-2019 Ghost Foundation - Released under the [MIT license](LICENSE).
