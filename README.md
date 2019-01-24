@@ -67,7 +67,7 @@ You can add your own SVG icons in the same manner.
 # Insert image with caption
 ```html
 <figure class="kg-card kg-image-card">
-  <img src="<path/to/image>" class="kg-image">
+  <img src="<path/to/image>" class="kg-image" alt="an image">
   <figcaption>My caption</figcaption>
 </figure>
 ```
