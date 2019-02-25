@@ -29,6 +29,15 @@ const nodemonServerInit = function () {
     livereload.listen(1234);
 };
 
+function handleError(done) {
+    return function (err) {
+        if (err) {
+            beeper();
+        }
+        return done(err);
+    };
+}
+
 gulp.task('build', ['css', 'js'], function (/* cb */) {
     return nodemonServerInit();
 });
@@ -108,13 +117,15 @@ gulp.task('zip', ['css', 'js'], function () {
     const themeName = require('./package.json').name;
     const filename = themeName + '.zip';
 
-    return gulp.src([
-        '**',
-        '!node_modules', '!node_modules/**',
-        '!dist', '!dist/**'
-    ])
-        .pipe(zip(filename))
-        .pipe(gulp.dest(targetDir));
+    pump([
+        gulp.src([
+            '**',
+            '!node_modules', '!node_modules/**',
+            '!dist', '!dist/**'
+        ]),
+        zip(filename),
+        gulp.dest(targetDir)
+    ], handleError(done));
 });
 
 gulp.task('default', ['build'], function () {

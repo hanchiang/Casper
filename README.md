@@ -74,9 +74,9 @@ You can add your own SVG icons in the same manner.
 
 # Customisations
 * Mailchimp(HTML, CSS)
-* Assets bundling
-* Emoji(CSS)
-* Rainbow syntax highlight
+* Assets bundling via gulp(concat andn minify)
+* [emoji.css](https://ionicabizau.github.io/emoji.css/)
+* [Rainbow code syntax highlighting](https://craig.is/making/rainbows)
 
 # Copyright & License
 Copyright (c) 2013-2019 Ghost Foundation - Released under the [MIT license](LICENSE).

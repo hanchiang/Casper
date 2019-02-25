@@ -2,7 +2,7 @@
     "name": "casper",
     "description": "The default personal blogging theme for Ghost. Beautiful, minimal and responsive.",
     "demo": "https://demo.ghost.io",
-    "version": "2.9.0",
+    "version": "2.9.3",
     "engines": {
         "ghost": ">=2.0.0",
         "ghost-api": "v2"
@@ -16,7 +16,9 @@
         "dev": "rm -rf ./assets/built && gulp",
         "build-once": "rm -rf ./assets/built && gulp build-once",
         "zip": "gulp zip",
-        "test": "gscan ."
+        "test": "gscan .",
+        "preship": "yarn test",
+        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
     },
     "author": {
         "name": "Ghost Foundation",
@@ -43,6 +45,7 @@
     "contributors": "https://github.com/TryGhost/Casper/graphs/contributors",
     "devDependencies": {
         "autoprefixer": "6.3.6",
+        "beeper": "^1.1.1",
         "cssnano": "3.7.1",
         "gscan": "^2.0.0",
         "gulp": "3.9.1",
@@ -59,7 +62,8 @@
         "merge2": "^1.2.3",
         "postcss-color-function": "2.0.1",
         "postcss-custom-properties": "5.0.1",
-        "postcss-easy-import": "1.0.1"
+        "postcss-easy-import": "1.0.1",
+        "pump": "3.0.0"
     },
     "config": {
         "posts_per_page": 25,
