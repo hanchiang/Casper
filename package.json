@@ -14,7 +14,6 @@
     },
     "scripts": {
         "dev": "rm -rf ./assets/built && gulp",
-        "build-once": "rm -rf ./assets/built && gulp build-once",
         "zip": "gulp zip",
         "test": "gscan .",
         "pretest": "gulp build",

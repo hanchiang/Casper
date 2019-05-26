@@ -29,9 +29,6 @@ const handleError = (done) => {
     };
 };
 
-gulp.task('build-once', ['css', 'js'], function () {
-
-});
 
 function hbs(done) {
     pump([
