@@ -79,9 +79,11 @@ You can add your own SVG icons in the same manner.
 * [Rainbow code syntax highlighting](https://craig.is/making/rainbows)
 * Comments with [CommentBox](https://commentbox.io/)
 
-# Build assets
-* Run `npm run pretest`
-* Output: `assets/built`
+# How to use
+* Clone project: `git clone https://github.com/hanchiang/ghost-casper-theme.git`
+* Install packages: `npm install`
+* Build assets: `npm run pretest`
+* Output folder: `assets/built`
 
 ## TODO
 * Make code snippets and highlight more readable and friendly
