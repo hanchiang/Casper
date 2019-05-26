@@ -79,5 +79,9 @@ You can add your own SVG icons in the same manner.
 * [Rainbow code syntax highlighting](https://craig.is/making/rainbows)
 * Comments with [CommentBox](https://commentbox.io/)
 
+# Build assets
+* Run `npm run pretest`
+* Output: `assets/built`
+
 # Copyright & License
 Copyright (c) 2013-2019 Ghost Foundation - Released under the [MIT license](LICENSE).

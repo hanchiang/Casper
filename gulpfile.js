@@ -7,6 +7,7 @@ const postcss = require('gulp-postcss');
 const zip = require('gulp-zip');
 const uglify = require('gulp-uglify');
 const beeper = require('beeper');
+const concat = require('gulp-concat');
 
 // postcss plugins
 const autoprefixer = require('autoprefixer');
@@ -46,25 +47,25 @@ function css(done) {
         cssnano()
     ];
 
-    // return merge(
-    //     gulp.src('./assets/css/main.css')
-    //         .on('error', swallowError)
-    //         .pipe(sourcemaps.init())
-    //         .pipe(postcss(processors))
-    //         .pipe(sourcemaps.write('.'))
-    //         .pipe(gulp.dest('./assets/built'))
-    //         .pipe(livereload()),
-    //     gulp.src('./assets/css/rainbow-monokai.css')
-    //         .on('error', swallowError)
-    //         .pipe(sourcemaps.init())
-    //         .pipe(postcss(processors))
-    //         .pipe(sourcemaps.write('.'))
-    //         .pipe(gulp.dest('./assets/built'))
-    //         .pipe(livereload())
-    // )
+    pump([
+        src([
+            'assets/css/global.css',    // casper global styles
+            'assets/css/screen.css',    // casper default styles
+            'assets/css/emoji.css',      // emoji icons: https://ionicabizau.github.io/emoji.css/   
+            'assets/css/mailchimp-classic-10_7.css', // Mailchimp default styles
+            // custom styles
+            'assets/css/mailchimp-custom.css',
+            'assets/css/mystyle.css'
+        ], { sourcemaps: true }),
+        postcss(processors),
+        concat('main.css'),
+        dest('assets/built/', { sourcemaps: '.' }),
+        livereload()
+    ], handleError(done));
+
 
     pump([
-        src('assets/css/*.css', { sourcemaps: true }),
+        src('assets/css/rainbow-monokai.css', { sourcemaps: true }),
         postcss(processors),
         dest('assets/built/', { sourcemaps: '.' }),
         livereload()
@@ -100,7 +101,19 @@ function js(done) {
     //         .pipe(gulp.dest('./assets/built'))
     //         .pipe(livereload())
     pump([
-        src('assets/js/*.js', { sourcemaps: true }),
+        src(['assets/js/jquery-3.3.1.js', 'assets/js/jquery.fitvids.js'], { sourcemaps: true }),
+        uglify(),
+        concat('main.js'),
+        dest('assets/built/', { sourcemaps: '.' }),
+        livereload()
+    ], handleError(done));
+
+    pump([
+        src([
+            'assets/js/commentbox.js',
+            'assets/js/infinitescroll.js',
+            'assets/js/rainbow.js'
+        ], { sourcemaps: true }),
         uglify(),
         dest('assets/built/', { sourcemaps: '.' }),
         livereload()
