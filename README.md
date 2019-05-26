@@ -83,5 +83,18 @@ You can add your own SVG icons in the same manner.
 * Run `npm run pretest`
 * Output: `assets/built`
 
+## TODO
+* Make code snippets and highlight more readable and friendly
+* Resources section for the tools I use, e.g. vscode, zsh, yada yada
+
+## How to
+**Insert image with caption**
+```html
+<figure class="kg-card kg-image-card">
+  <img src="<path/to/image>" class="kg-image">
+  <figcaption>My caption</figcaption>
+</figure>
+```
+
 # Copyright & License
 Copyright (c) 2013-2019 Ghost Foundation - Released under the [MIT license](LICENSE).
