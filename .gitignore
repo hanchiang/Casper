@@ -22,7 +22,6 @@ projectFilesBackup
 .DS_Store
 
 dist/
-assets/built
 
 config.json
 changelog.md
