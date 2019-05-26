@@ -73,33 +73,6 @@ function css(done) {
 }
 
 function js(done) {
-    // return merge(
-    //     gulp.src('./assets/js/main.js')
-    //         .on('error', swallowError)
-    //         .pipe(jsImport({ hideConsole: true }))
-    //         .pipe(sourcemaps.init())
-    //         // .pipe(jsFilter)
-    //         .pipe(concat('main.js'))
-    //         .pipe(uglify())
-    //         // .pipe(jsFilter.restore)
-    //         .pipe(sourcemaps.write('.'))
-    //         .pipe(gulp.dest('./assets/built'))
-    //         .pipe(livereload()),
-    //     // uglify
-    //     gulp.src(['./assets/js/commentbox.js', './assets/js/infinitescroll.js'])
-    //         .on('error', swallowError)
-    //         .pipe(sourcemaps.init())
-    //         .pipe(uglify())
-    //         .pipe(sourcemaps.write('.'))
-    //         .pipe(gulp.dest('./assets/built'))
-    //         .pipe(livereload()),
-    //     // no uglify
-    //     gulp.src('./assets/js/rainbow.js')
-    //         .on('error', swallowError)
-    //         .pipe(sourcemaps.init())
-    //         .pipe(sourcemaps.write('.'))
-    //         .pipe(gulp.dest('./assets/built'))
-    //         .pipe(livereload())
     pump([
         src(['assets/js/jquery-3.3.1.js', 'assets/js/jquery.fitvids.js'], { sourcemaps: true }),
         uglify(),
